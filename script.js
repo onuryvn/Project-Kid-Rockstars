@@ -34,12 +34,65 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
-let wrapper = document.getElementById("wrapper");
-let burger = document.getElementById("burger_button");
+// curtain menu
 
-console.log(wrapper.innerHTML);
+let burger_button = document.getElementById('burger_button');
 
-burger.addEventListener("click", () => {
-    wrapper.style.display = "none";
-    
+let toggle = false;
+
+function changeButton() {
+  openNav();
+  burger_button.innerHTML = '&times;';
+  burger_button.style.fontSize = '36px';
+}
+
+function resetButton() {
+  closeNav();
+  burger_button.innerHTML = '&#9776;';
+  burger_button.style.fontSize = '24px';
+}
+
+burger_button.addEventListener("click", () => {
+  if(toggle) {
+    resetButton();
+  } 
+  else {
+    changeButton();
+  }
+  toggle = !toggle; // change value
 });
+
+/* Open */
+function openNav() {
+  document.getElementById("myNav").style.height = "100%";
+}
+
+/* Close */
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+// /curtain menu
+
+
+// swipe
+
+let container = document.getElementById('slideshow-container');
+
+let touchstartX = 0;
+let touchendX = 0;
+
+function checkDirection() {
+  if(touchendX < touchstartX) plusSlides(1);
+  if(touchendX > touchstartX) plusSlides(-1);
+}
+
+container.addEventListener('touchstart', e => {
+  touchstartX = e.changedTouches[0].screenX
+})
+
+container.addEventListener('touchend', e => {
+  touchendX = e.changedTouches[0].screenX
+  checkDirection()
+})
+
+// swipe
