@@ -95,4 +95,5 @@ container.addEventListener('touchend', e => {
   checkDirection()
 })
 
-// swipe
+// /swipe
+
