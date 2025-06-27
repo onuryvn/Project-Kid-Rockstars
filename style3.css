@@ -5,42 +5,45 @@ body {
 
 #grid-container-3 {
 	display: grid;
-  grid-template-columns: 1fr 8fr 1fr;
-  grid-template-rows: 100px 1fr;
-  width: 100%;
-  min-height: 100vh;
+	grid-template-columns: 1fr 8fr 1fr;
+	grid-template-rows: 100px 1fr;
+	width: 100%;
+	min-height: 100vh;
 }
 
-#header {
+#header { /* header und header wrapper grid und Datenstruktur noch verbessern*/
 	grid-area: 1/2/2/3;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-background: linear-gradient(
-    135deg,
-    #ddd 0%,
-    #fff 25%,
-    #aaa 50%,
-    #fff 75%,
-    #ddd 100%
-  );
-  /* Clippe den Verlauf auf die Buchstaben */
-  -webkit-background-clip: text;
-  background-clip: text;
-  /* Macht den eigentlichen Text transparent */
-  color: transparent;
+	background: linear-gradient(
+		135deg,
+		#ddd 0%,
+		#fff 25%,
+		#aaa 50%,
+		#fff 75%,
+		#ddd 100%
+	);
+	/* Clippe den Verlauf auf die Buchstaben */
+	-webkit-background-clip: text;
+	background-clip: text;
+	/* Macht den eigentlichen Text transparent */
+	color: transparent;
 
-	border-bottom: 2px solid whitesmoke;
 	margin: 0;
 	padding: 0;
 	text-shadow:
     0 0 2px rgba(255,255,255,0.8),
     2px 2px 4px rgba(0,0,0,0.6);
-  position: relative;
+  	position: relative;
 }
 
-#header::before {
+.highlight {
+	text-align: center;
+}
+
+/* #header::before {
   content: '';
   position: absolute;
   top: 10%;
@@ -50,7 +53,7 @@ background: linear-gradient(
   background: rgba(255, 255, 255, 0.3);
   transform: skew(-20deg);
   filter: blur(3px);
-}
+} */
 
 #burger_button {
 	grid-area: 1/3/2/4;
@@ -67,27 +70,28 @@ background: linear-gradient(
 
 #header_wrapper {
 	grid-area: 1/1/2/4;
+	background-color: black;
 	box-shadow: inset 0 0 1em 1em #000;
-	background-image: url(./images/crowd1.jpg);
-	background-size: cover;
 	width: 100%;
 	height: 100%;
+	box-shadow: 0 -0.5rem 1rem 1rem black;
 }
-
 
 /* timeline */
 #timeline {
 	grid-area: 2/1/3/4;
-	gap: 20px;
+	/* gap: 1.25rem; */
+	row-gap: 17rem;
 	padding: 8px;
 	/* border: 1px solid whitesmoke; */
 	display: grid;
 	grid-template-columns: 1fr 3fr 8fr;
-	grid-template-rows: repeat(5, 1fr);
+	/* grid-template-rows: repeat(9, 1fr); */
 	color: white;
 	font-weight: 900;
 	box-shadow: inset 0em 0em 10em 7em #000;
   	background-image: url(./images/kurtcobain_collage.jpg);
+	background-attachment: fixed;
   	background-color: rgba(0, 0, 0, 0.607);
 	background-blend-mode: color;
   	background-size: cover;
@@ -96,7 +100,7 @@ background: linear-gradient(
 #ruler {
 	display: flex;
 	justify-content: center;
-	grid-area: 1/1/6/2;
+	grid-area: 1/1/10/2;
 }
 
 #ruler > div {
@@ -104,14 +108,15 @@ background: linear-gradient(
 	width: 2px;
 }
 
-.date {
+.dates {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: start;
 }
 
 .media_container {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -124,37 +129,29 @@ background: linear-gradient(
 }
 
 .ruler_dots > div {
-	content: '';
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
-	background: black;
-	border: 2px solid whitesmoke;
+	background: rgb(255, 128, 0);
+	border: 2px solid rgb(106, 66, 21);
 }
 
-
-#text_background1 {
-	grid-area: 1/2/2/4;
-}
-#text_background1 > div {
-	background-image: url(./images/cig.jpg);
-	border-radius: 8px;
-	background-position: center;
-	background-size: cover;
-	width: 100%;
-	height: 100%;
-}
-
-#text_background2 {
-	grid-area: 3/2/4/4;
-}
-#text_background2 > div {
-	background: rgba(0, 0, 0, 0.771);    
+.text_background > div {
+	background: rgba(0, 0, 0, 0.623);    
 	box-shadow: 0 0 8px 2px black;
 	border-radius: 8px;  
 	width: 100%;
 	height: 100%;
 }
+
+#text_background1 {grid-area: 1/2/2/4;}
+#text_background2 {grid-area: 2/2/3/4;}
+#text_background3 {grid-area: 3/2/4/4;}
+#text_background4 {grid-area: 4/2/5/4;}
+#text_background5 {grid-area: 5/2/6/4;}
+#text_background6 {grid-area: 6/2/7/4;}
+#text_background7 {grid-area: 7/2/8/4;}
+#text_background8 {grid-area: 8/2/9/4;}
 
 #dot1 {grid-area: 1/1/2/2;}
 #date1 {grid-area: 1/2/2/3;}
@@ -176,18 +173,111 @@ background: linear-gradient(
 #date5 {grid-area: 5/2/6/3;}
 #container5 {grid-area: 5/3/6/4;}
 
+#dot6 {grid-area: 6/1/7/2;}
+#date6 {grid-area: 6/2/7/3;}
+#container6 {grid-area: 6/3/7/4;}
+
+#dot7 {grid-area: 7/1/8/2;}
+#date7 {grid-area: 7/2/8/3;}
+#container7 {grid-area: 7/3/8/4;}
+
+#dot8 {grid-area: 8/1/9/2;}
+#date8 {grid-area: 8/2/9/3;}
+#container8 {grid-area: 8/3/9/4;}
+
+#container9 {grid-area: 9/2/10/4;}
+
 /* /timeline */
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 400px) {
 	#timeline {
-		grid-template-columns: 10fr 1fr 10fr;
-		grid-template-rows: repeat(5, 3fr);
+		grid-template-columns: 1fr 11fr;
+		row-gap: 0;
+		grid-template-rows: repeat(8, 1fr 3fr 4fr);
 	}
 
-	#date_wrapper > *:nth-child(odd) {margin-left: auto;}
+	#ruler {grid-area: 1/1/end/2;}
+
+	.dates {justify-content: start;}
+
+	#text_background1 {grid-area: 1/2/3/3;}
+	#text_background2 {grid-area: 4/2/6/3;}
+	#text_background3 {grid-area: 7/2/9/3;}
+	#text_background4 {grid-area: 10/2/12/3;}
+	#text_background5 {grid-area: 13/2/15/3;}
+	#text_background6 {grid-area: 16/2/18/3;}
+	#text_background7 {grid-area: 19/2/21/3;}
+	#text_background8 {grid-area: 22/2/24/3;}
+
+	#dot1 {grid-area: 1/1/2/2;}
+	#date1 {grid-area: 1/2/2/3;}
+	#container1 {grid-area: 2/2/3/3;}
+
+	#dot2 {grid-area: 4/1/5/2;}
+	#date2 {grid-area: 4/2/5/3;}
+	#container2 {grid-area: 5/2/6/3;}
+
+	#dot3 {grid-area: 7/1/8/2;}
+	#date3 {grid-area: 7/2/8/3;}
+	#container3 {grid-area: 8/2/9/3;}
+
+	#dot4 {grid-area: 10/1/11/2;}
+	#date4 {grid-area: 10/2/11/3;}
+	#container4 {grid-area: 11/2/12/2;}
+
+	#dot5 {grid-area: 13/1/14/2;}
+	#date5 {grid-area: 13/2/14/3;}
+	#container5 {grid-area: 14/2/15/3;}
+
+	#dot6 {grid-area: 16/1/17/2;}
+	#date6 {grid-area: 16/2/17/3;}
+	#container6 {grid-area: 17/2/18/3;}
+
+	#dot7 {grid-area: 19/1/20/2;}
+	#date7 {grid-area: 19/2/20/3;}
+	#container7 {grid-area: 20/2/21/3;}
+
+	#dot8 {grid-area: 22/1/23/2;}
+	#date8 {grid-area: 22/2/23/3;}
+	#container8 {grid-area: 23/2/24/3;}
+
+	#container9{grid-area: 25/2/26/3;}
+}
+
+@media screen and (min-width: 750px) {
+	#timeline {
+		grid-template-columns: 20fr 1fr 20fr;
+		padding: 0 2rem;
+	}
+
+	#date_wrapper > *:nth-child(odd) {margin-left: auto;} 
 	#date_wrapper > *:nth-child(even) {margin-right: auto;}
 
-	#ruler {grid-area: 1/2/6/3;}
+	#ruler {grid-area: 1/2/10/3;}
+
+	.text_background {display: none;}
+
+	.media_container {
+		font-size: 1.5rem;
+		background: rgba(0, 0, 0, 0.623);    
+		box-shadow: 0 0 1rem 0.25rem black;
+		border-radius: 8px; 
+	}
+
+	.dates {
+		font-size: 1.6rem;
+		text-shadow: 0 0 1.25rem black, 0 0 1.25rem black, 0 0 1.25rem black, 0 0 1.25rem black;
+	}
+
+	#date1,
+	#date3,
+	#date5,
+	#date7 {text-align: right;}
+
+	#container2,
+	#container4,
+	#container6,
+	#container8 {text-align: right;}
 
 	#date1 {grid-area: 1/1/2/2;}
 	#dot1 {grid-area: 1/2/2/3;}
@@ -208,35 +298,20 @@ background: linear-gradient(
 	#date5 {grid-area: 5/1/6/2;}
 	#dot5 {grid-area: 5/2/6/3;}
 	#container5 {grid-area: 5/3/6/4;}
-}
 
-@media screen and (max-width: 400px) {
-	#timeline {
-		grid-template-columns: 1fr 11fr;
-		grid-template-rows: repeat(5, 1fr 3fr);
-	}
+	#date6 {grid-area: 6/3/7/4;}
+	#dot6 {grid-area: 6/2/7/3;}
+	#container6 {grid-area: 6/1/7/2;}
 
-	#ruler {grid-area: 1/1/end/2;}
+	#date7 {grid-area: 7/1/8/2;}
+	#dot7 {grid-area: 7/2/8/3;}
+	#container7 {grid-area: 7/3/8/4;}
+	
+	#date8 {grid-area: 8/3/9/4;}
+	#dot8 {grid-area: 8/2/9/3;}
+	#container8 {grid-area: 8/1/9/2;}
 
-	#dot1 {grid-area: 1/1/2/2;}
-	#date1 {grid-area: 1/2/2/3;}
-	#container1 {grid-area: 2/2/3/3;}
-
-	#dot2 {grid-area: 3/1/4/2;}
-	#date2 {grid-area: 3/2/4/3;}
-	#container2 {grid-area: 4/2/5/3;}
-
-	#dot3 {grid-area: 5/1/6/2;}
-	#date3 {grid-area: 5/2/6/3;}
-	#container3 {grid-area: 6/2/7/3;}
-
-	#dot4 {grid-area: 7/1/8/2;}
-	#date4 {grid-area: 7/2/8/3;}
-	#container4 {grid-area: 8/2/9/2;}
-
-	#dot5 {grid-area: 9/1/10/2;}
-	#date5 {grid-area: 9/2/10/3;}
-	#container5 {grid-area: 10/2/11/3;}
+	#container9 {grid-area: 9/3/10/4;}
 }
 
 #date_wrapper {
@@ -467,3 +542,60 @@ background: linear-gradient(
     .piano-keys-list li:nth-last-child(-n+5) { display: flex; }
 }
 /* /PIANO PAGE */
+
+
+/* BAND PAGE */
+
+#main_band {
+	grid-area: 2/1/3/4;
+	display: grid;
+	grid-template-columns: 1fr 15fr 1fr;
+	grid-template-rows: 100vh 100vh 100vh 100vh 100vh;
+	box-shadow: inset 0em 0em 10em 7em #000;
+  	background-image: url(./images/black_leather_texture.jpg);
+  	background-color: rgba(0, 0, 0, 0.607);
+  	background-blend-mode: color;
+  	background-size: cover;
+	color: white;
+}
+
+#header_wrapper,
+#burger_button {
+	position: sticky;
+	top: 0;
+	z-index: 5;
+}
+
+.wrapped_text {
+	text-indent: 1rem;
+}
+
+#img_top {
+	width: 100%;
+}
+
+#img3,
+#img5 {
+	float: left;
+	margin: 0 0.75rem 0.75rem 0;
+}
+
+#img2,
+#img4 {
+	float: right;
+	margin: 0 0 0.75rem 0.75rem;
+}
+#imgAndText1 {grid-area: 1/2/2/3;}
+
+#imgAndText2 {grid-area: 2/2/3/3;}
+
+#imgAndText3 {grid-area: 3/2/4/3;}
+
+#imgAndText4 {grid-area: 4/2/5/3;}
+
+#imgAndText5 {grid-area: 5/2/6/3;}
+
+
+
+
+/* /BAND PAGE */
