@@ -50,7 +50,7 @@ let quizData = [
     correct: "Verstärker"
   },
 ];
-//DOM-Elemente wird referenziert
+// Element references
 const quizContainer = document.querySelector(".quiz-container");
 const question = document.querySelector(".quiz-container .question");
 const options = document.querySelector(".quiz-container .options");
@@ -64,24 +64,29 @@ let score = 0;
 const MAX_QUESTIONS = 10;
 let timerInterval;
 
-/*function um Fragen und Antworten zu mischen*/
+// Shuffle helper function
 const shuffleArray = (array) => {
   return array.slice().sort(() => Math.random() - 0.5);
 };
 
+// Shuffle the quiz data at start
 quizData = shuffleArray(quizData);
-//Antworten loschen
+
+// Clear saved answers in localStorage
 const resetLocalStorage = () => {
-  for (i = 0; i < MAX_QUESTIONS; i++) {
+  for (let i = 0; i < MAX_QUESTIONS; i++) {
     localStorage.removeItem(`userAnswer_${i}`);
   }
 };
 
 resetLocalStorage();
-/*pruft antwort und speichert es in liste*/
+
+// Check selected answer and update UI
 const checkAnswer = (e) => {
-  let userAnswer = e.target.textContent;
-  if (userAnswer === quizData[questionNumber].correct) {
+  const userAnswer = e.target.textContent;
+  const correctAnswer = quizData[questionNumber].correct;
+
+  if (userAnswer === correctAnswer) {
     score++;
     e.target.classList.add("correct");
   } else {
@@ -90,21 +95,23 @@ const checkAnswer = (e) => {
 
   localStorage.setItem(`userAnswer_${questionNumber}`, userAnswer);
 
-  let allOptions = document.querySelectorAll(".quiz-container .option");
-  allOptions.forEach((o) => {
-    o.classList.add("disabled");
+  // Disable all options after selection
+  const allOptions = document.querySelectorAll(".quiz-container .option");
+  allOptions.forEach((option) => {
+    option.classList.add("disabled");
   });
 };
-//Timer und Options
+
+// Create and display a question with options and timer
 const createQuestion = () => {
   clearInterval(timerInterval);
 
   let secondsLeft = 9;
   const timerDisplay = document.querySelector(".quiz-container .timer");
   timerDisplay.classList.remove("danger");
-
   timerDisplay.textContent = `Verbleibende Zeit: 10 Sekunden`;
 
+  // Countdown timer
   timerInterval = setInterval(() => {
     timerDisplay.textContent = `Verbliebende Zeit ${secondsLeft
       .toString()
@@ -121,24 +128,78 @@ const createQuestion = () => {
     }
   }, 1000);
 
+  // Display question
   options.innerHTML = "";
-  question.innerHTML = `<span class='question-number'>${
-    questionNumber + 1
-  }/${MAX_QUESTIONS}</span>${quizData[questionNumber].question}`;
+  question.innerHTML = `<span class="question-number">${questionNumber + 1}/${MAX_QUESTIONS}</span>${quizData[questionNumber].question}`;
 
+  // Display shuffled answer options
   const shuffledOptions = shuffleArray(quizData[questionNumber].options);
-
-  shuffledOptions.forEach((o) => {
-    const option = document.createElement("button");
-    option.classList.add("option");
-    option.innerHTML = o;
-    option.addEventListener("click", (e) => {
-      checkAnswer(e);
-    });
-    options.appendChild(option);
+  shuffledOptions.forEach((opt) => {
+    const optionBtn = document.createElement("button");
+    optionBtn.classList.add("option");
+    optionBtn.innerHTML = opt;
+    optionBtn.addEventListener("click", checkAnswer);
+    options.appendChild(optionBtn);
   });
 };
-//wiederholen
+
+// Show result screen with score and user answers
+const displayQuizResult = () => {
+  quizResult.style.display = "flex";
+  quizContainer.style.display = "none";
+  quizResult.innerHTML = "";
+
+  const resultHeading = document.createElement("h2");
+  resultHeading.innerHTML = `Sie haben ${score} aus ${MAX_QUESTIONS} Fragen richtig beantwortet.`;
+  quizResult.appendChild(resultHeading);
+
+  for (let i = 0; i < MAX_QUESTIONS; i++) {
+    const resultItem = document.createElement("div");
+    resultItem.classList.add("question-container");
+
+    const userAnswer = localStorage.getItem(`userAnswer_${i}`);
+    const correctAnswer = quizData[i].correct;
+    const answeredCorrectly = userAnswer === correctAnswer;
+
+    if (!answeredCorrectly) {
+      resultItem.classList.add("incorrect");
+    }
+
+    resultItem.innerHTML = `
+      <div class="question">Frage ${i + 1}: ${quizData[i].question}</div>
+      <div class="user-answer">Ihre Antwort: ${userAnswer || "nicht beantwortet"}</div>
+      <div class="correct-answer">Richtige Antwort: ${correctAnswer}</div>
+    `;
+
+    quizResult.appendChild(resultItem);
+  }
+
+  // "Wiederholen" button
+  const retakeBtn = document.createElement("button");
+  retakeBtn.classList.add("retake-btn");
+  retakeBtn.innerHTML = "Wiederholen";
+  retakeBtn.addEventListener("click", retakeQuiz);
+  quizResult.appendChild(retakeBtn);
+
+  // "Zurück" link
+  const returnLink = document.createElement("a");
+  returnLink.href = "index.html";
+  returnLink.classList.add("return-btn");
+  returnLink.textContent = "Zurück";
+  quizResult.appendChild(returnLink);
+};
+
+// Move to the next question or show results
+const displayNextQuestion = () => {
+  if (questionNumber >= MAX_QUESTIONS - 1) {
+    displayQuizResult();
+  } else {
+    questionNumber++;
+    createQuestion();
+  }
+};
+
+// Restart the quiz from the beginning
 const retakeQuiz = () => {
   questionNumber = 0;
   score = 0;
@@ -150,63 +211,8 @@ const retakeQuiz = () => {
   quizContainer.style.display = "block";
 };
 
-const displayQuizResult = () => {
-  quizResult.style.display = "flex";
-  quizContainer.style.display = "none";
-  quizResult.innerHTML = "";
-
-  const resultHeading = document.createElement("h2");
-  resultHeading.innerHTML = `Sie haben ${score} aus ${MAX_QUESTIONS} Fragen richtig beantwortet.`;
-  quizResult.appendChild(resultHeading);
-
-  /* for loop um jede Antwort zu prufen und zeigen*/
-  for (let i = 0; i < MAX_QUESTIONS; i++) {
-    const resultItem = document.createElement("div");
-    resultItem.classList.add("question-container");
-
-    const userAnswer = localStorage.getItem(`userAnswer_${i}`);
-    const correctAnswer = quizData[i].correct;
-
-    let answeredCorrectly = userAnswer === correctAnswer;
-    
-    if (!answeredCorrectly) {
-      resultItem.classList.add("incorrect");
-    }
-
-    resultItem.innerHTML = `<div class="question">Frage ${i + 1}: ${
-      quizData[i].question
-    }</div>
-    <div class="user-answer">Ihre Antwort: ${userAnswer || "nicht beantwortet"}</div>
-    <div class="correct-answer">Richtige Antwort ${correctAnswer}</div>`;
-
-    quizResult.appendChild(resultItem);
-  }
-
-  const retakeBtn = document.createElement("button");
-  retakeBtn.classList.add("retake-btn");
-  retakeBtn.innerHTML = "Wiederholen";
-  retakeBtn.addEventListener("click", retakeQuiz);
-  quizResult.appendChild(retakeBtn);
-  //return button
-  const returnLink = document.createElement("a");
-  returnLink.href = "index.html";
-  returnLink.classList.add("return-btn");
-  returnLink.textContent = "Zurück";
-  quizResult.appendChild(returnLink);
-};
-
-
-const displayNextQuestion = () => {
-  if (questionNumber >= MAX_QUESTIONS - 1) {
-    displayQuizResult();
-    return;
-  }
-
-  questionNumber++;
-  createQuestion();
-};
+// Event listeners
 nextBtn.addEventListener("click", displayNextQuestion);
-
 startBtn.addEventListener("click", () => {
   startBtnContainer.style.display = "none";
   quizContainer.style.display = "block";
