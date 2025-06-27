@@ -1,38 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moshlings Quiz Page</title>
-    <link rel="stylesheet" href="stylequiz.css" />
-    <!--Icon fur Browser-->
-    <link rel="icon" type="image/svg+xml" href="eguitar.svg">
-    <!--Metal Mania Font von Google Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="start-btn-container">
-      <h2>Teste Deine Wissen!</h2>
-      <p>Fragen rund um Instrumente und Metal!</p>
-      <button class="start-btn">Anfangen</button>
-    </div>
+<html lang="de">
+<head>
+  
+  <!-- Basic Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <div class="quiz-container">
-      <h1>Quiz for Moshlings!</h1>
-      <div class="timer">Verbleibende Zeit: 10 Sekunden</div>
-      <h2 class="question"></h2>
-      <div class="options"></div>
-      <button class="next-btn">Nächste</button>
+  <!-- SEO Meta -->
+  <title>Moshlings Quiz – Teste Dein Wissen über Metal und Instrumente</title>
+  <meta name="description" content="Teste dein Wissen über Metal-Musik und Instrumente mit dem Moshlings Quiz! Spannende Fragen für alle Rock- und Metal-Fans." />
+  <meta name="keywords" content="Metal, Musik, Instrumente, Quiz, Moshlings, Musikquiz, Rock, Wissenstest" />
+  <meta name="author" content="Moshlings Team" />
 
-      <a href="index.html" class="return-btn">Zurück zur Main Page</a>
-    </div>
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content="Moshlings Musik-Quiz" />
+  <meta property="og:description" content="Ein unterhaltsames Quiz für alle Metal- und Musikliebhaber!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="preview.jpg" />
+  <meta property="og:url" content="https://example.com/moshlings-quiz" />
 
-    <div class="quiz-result">
-      <a href="index.html" class="return-btn">Zurück</a>
-    </div>
+  <!-- Favicon & Fonts -->
+  <link rel="icon" type="image/svg+xml" href="eguitar.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet" />
 
-    <script src="quizscript.js"></script>
-  </body>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="stylequiz.css" />
+</head>
+
+<body>
+  <!-- Start Screen -->
+  <section class="start-btn-container" aria-label="Start Quiz Section">
+    <h1>Teste dein Wissen!</h1>
+    <p>Fragen rund um Instrumente und Metal!</p>
+    <button class="start-btn" aria-label="Quiz starten">Anfangen</button>
+  </section>
+
+  <!-- Quiz Section -->
+  <main class="quiz-container" aria-live="polite">
+    <h2>Quiz für Moshlings!</h2>
+    <div class="timer" aria-label="Verbleibende Zeit">Verbleibende Zeit: 10 Sekunden</div>
+    <h3 class="question"></h3>
+    <div class="options" role="list"></div>
+    <button class="next-btn" aria-label="Nächste Frage">Nächste</button>
+    <a href="index.html" class="return-btn">Zurück zur Hauptseite</a>
+  </main>
+
+  <!-- Results Section -->
+  <section class="quiz-result" aria-label="Ergebnisse">
+    <a href="index.html" class="return-btn">Zurück</a>
+  </section>
+
+  <!-- Script -->
+  <script src="quizscript.js" defer></script>
+</body>
 </html>
+
