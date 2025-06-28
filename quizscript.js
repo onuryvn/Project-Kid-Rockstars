@@ -83,6 +83,7 @@ resetLocalStorage();
 
 // Check selected answer and update UI
 const checkAnswer = (e) => {
+  clearInterval(timerInterval);
   const userAnswer = e.target.textContent;
   const correctAnswer = quizData[questionNumber].correct;
 
@@ -218,3 +219,20 @@ startBtn.addEventListener("click", () => {
   quizContainer.style.display = "block";
   createQuestion();
 });
+
+//BigMac
+function openNav() {
+  const nav = document.getElementById("myNav");
+  nav.classList.add("open");
+  nav.setAttribute("aria-hidden", "false");
+  // Optional: disable page scroll while menu open
+  document.body.style.overflow = "hidden";
+}
+
+function closeNav() {
+  const nav = document.getElementById("myNav");
+  nav.classList.remove("open");
+  nav.setAttribute("aria-hidden", "true");
+  // Re-enable page scroll
+  document.body.style.overflow = "";
+}
