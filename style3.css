@@ -1,6 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	background-color: black;
 }
 
 #grid-container-3 {
@@ -90,7 +91,7 @@ body {
 	color: white;
 	font-weight: 900;
 	box-shadow: inset 0em 0em 10em 7em #000;
-  	background-image: url(./images/kurtcobain_collage.jpg);
+  	background-image: url(./images/rock-collage-fullhd.jpg);
 	background-attachment: fixed;
   	background-color: rgba(0, 0, 0, 0.607);
 	background-blend-mode: color;
@@ -106,6 +107,22 @@ body {
 #ruler > div {
 	background-color: rgb(228, 228, 228);
 	width: 2px;
+}
+
+.audio-player {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.song-title {
+  	opacity: 0;
+  	transition: opacity 0.5s ease;
+	margin: 0;
+	padding: 0;
+}
+.song-title.show {
+  	opacity: 1;
 }
 
 .dates {
@@ -550,14 +567,18 @@ body {
 	grid-area: 2/1/3/4;
 	display: grid;
 	grid-template-columns: 1fr 15fr 1fr;
-	grid-template-rows: 100vh 100vh 100vh 100vh 100vh;
+	row-gap: 10rem;
 	box-shadow: inset 0em 0em 10em 7em #000;
-  	background-image: url(./images/black_leather_texture.jpg);
-  	background-color: rgba(0, 0, 0, 0.607);
-  	background-blend-mode: color;
-  	background-size: cover;
-	color: white;
+
+	background-color: #ffe60030;
+	background-image: url(./images/band-fullhd.jpg);	
+	background-blend-mode: color;
+	background-size: cover;
+	background-attachment: fixed;
+
+	color: whitesmoke;
 }
+
 
 #header_wrapper,
 #burger_button {
@@ -566,8 +587,11 @@ body {
 	z-index: 5;
 }
 
-.wrapped_text {
+.wrapped_texts {
 	text-indent: 1rem;
+	background: rgba(0, 0, 0, 0.623);    
+	box-shadow: 0 0 1rem 0.25rem black;
+	border-radius: 8px; 
 }
 
 #img_top {
