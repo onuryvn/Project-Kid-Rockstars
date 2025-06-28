@@ -50,7 +50,7 @@ let quizData = [
     correct: "Verstärker"
   },
 ];
-// Element references
+// DOMElement references
 const quizContainer = document.querySelector(".quiz-container");
 const question = document.querySelector(".quiz-container .question");
 const options = document.querySelector(".quiz-container .options");
@@ -180,13 +180,6 @@ const displayQuizResult = () => {
   retakeBtn.innerHTML = "Wiederholen";
   retakeBtn.addEventListener("click", retakeQuiz);
   quizResult.appendChild(retakeBtn);
-
-  // "Zurück" link
-  const returnLink = document.createElement("a");
-  returnLink.href = "index.html";
-  returnLink.classList.add("return-btn");
-  returnLink.textContent = "Zurück";
-  quizResult.appendChild(returnLink);
 };
 
 // Move to the next question or show results
@@ -218,3 +211,19 @@ startBtn.addEventListener("click", () => {
   quizContainer.style.display = "block";
   createQuestion();
 });
+//BigMac
+function openNav() {
+  const nav = document.getElementById("myNav");
+  nav.classList.add("open");
+  nav.setAttribute("aria-hidden", "false");
+  // Optional: disable page scroll while menu open
+  document.body.style.overflow = "hidden";
+}
+
+function closeNav() {
+  const nav = document.getElementById("myNav");
+  nav.classList.remove("open");
+  nav.setAttribute("aria-hidden", "true");
+  // Re-enable page scroll
+  document.body.style.overflow = "";
+}
