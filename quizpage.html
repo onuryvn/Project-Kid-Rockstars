@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-  
+
   <!-- Basic Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +11,8 @@
 
   <!-- SEO Meta -->
   <title>Moshlings Quiz – Teste Dein Wissen über Metal und Instrumente</title>
-  <meta name="description" content="Teste dein Wissen über Metal-Musik und Instrumente mit dem Moshlings Quiz! Spannende Fragen für alle Rock- und Metal-Fans." />
+  <meta name="description"
+    content="Teste dein Wissen über Metal-Musik und Instrumente mit dem Moshlings Quiz! Spannende Fragen für alle Rock- und Metal-Fans." />
   <meta name="keywords" content="Metal, Musik, Instrumente, Quiz, Moshlings, Musikquiz, Rock, Wissenstest" />
   <meta name="author" content="Moshlings Team" />
 
@@ -32,6 +34,21 @@
 </head>
 
 <body>
+  <!-- Curtain Menu Overlay -->
+<div id="myNav" class="overlay" aria-hidden="true">
+  <a href="javascript:void(0)" class="closebtn" aria-label="Schließe Menü" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="band.html">Band Page</a>
+    <a href="pianopage.html">Piano Page</a>
+    <a href="history.html">Rock History</a>
+    <a href="index.html">Main Page</a>
+  </div>
+</div>
+
+<!-- Hamburger Button -->
+<button class="hamburger" aria-label="Menü öffnen" onclick="openNav()">&#9776;</button>
+
+
   <!-- Start Screen -->
   <section class="start-btn-container" aria-label="Start Quiz Section">
     <h1>Teste dein Wissen!</h1>
@@ -46,16 +63,15 @@
     <h3 class="question"></h3>
     <div class="options" role="list"></div>
     <button class="next-btn" aria-label="Nächste Frage">Nächste</button>
-    <a href="index.html" class="return-btn">Zurück zur Hauptseite</a>
   </main>
 
   <!-- Results Section -->
   <section class="quiz-result" aria-label="Ergebnisse">
-    <a href="index.html" class="return-btn">Zurück</a>
+
   </section>
 
   <!-- Script -->
   <script src="quizscript.js" defer></script>
 </body>
-</html>
 
+</html>
