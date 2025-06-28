@@ -569,13 +569,11 @@ body {
 	grid-template-columns: 1fr 15fr 1fr;
 	row-gap: 10rem;
 	box-shadow: inset 0em 0em 10em 7em #000;
-
-	background-color: #ffe60030;
 	background-image: url(./images/band-fullhd.jpg);	
+	background-color: #00000084;
 	background-blend-mode: color;
 	background-size: cover;
 	background-attachment: fixed;
-
 	color: whitesmoke;
 }
 
@@ -598,16 +596,10 @@ body {
 	width: 100%;
 }
 
-#img3,
-#img5 {
-	float: left;
-	margin: 0 0.75rem 0.75rem 0;
-}
-
-#img2,
-#img4 {
+.floated_img {
 	float: right;
-	margin: 0 0 0.75rem 0.75rem;
+	margin: 0.75rem;
+	width: 100%;
 }
 #imgAndText1 {grid-area: 1/2/2/3;}
 
@@ -619,7 +611,45 @@ body {
 
 #imgAndText5 {grid-area: 5/2/6/3;}
 
+#imgAndText6 {grid-area: 6/2/7/3;}
 
+@media screen and (min-width: 750px) {
+	
+	#main_band {
+		grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
+	}
+
+	.wrapped_container {display: contents;}
+
+	.wrapped_texts {font-size: 1.25rem;}
+
+	.dates {
+		text-align: center;
+		margin: 0 auto;
+	}
+	
+	#imgAndText1 {grid-area: 1/2/2/5;}
+
+	#title2 {grid-area: 2/2/3/3;}
+	#wrapped_text2 {grid-area: 2/3/3/4;}
+	#img2 {grid-area: 2/4/3/5;}
+
+	#title3 {grid-area: 3/3/4/4;}
+	#wrapped_text3 {grid-area: 3/4/4/5;}
+	#img3 {grid-area: 3/2/4/3;}
+
+	#title4 {grid-area: 4/4/5/5;}
+	#wrapped_text4 {grid-area: 4/2/5/3;}
+	#img4 {grid-area: 4/3/5/4;}
+
+	#title5 {grid-area: 5/2/6/3;}
+	#wrapped_text5 {grid-area: 5/3/6/4;}
+	#img5 {grid-area: 5/4/6/5;}
+
+	#title6 {grid-area: 6/3/7/4;}
+	#wrapped_text6 {grid-area: 6/4/7/5;}
+	#img6 {grid-area: 6/2/7/3;}
+}
 
 
 /* /BAND PAGE */
