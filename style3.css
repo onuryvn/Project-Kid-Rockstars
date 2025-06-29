@@ -340,44 +340,35 @@ body {
 #main_piano {
 	grid-area: 2/1/3/4;
 	display: grid;
-	grid-template-columns: 1fr 15fr 1fr;
-	grid-template-rows: auto auto auto auto auto auto auto auto auto;
+	grid-template-columns: 1fr 10fr 1fr;
 	gap: 0.5rem;
-	padding: 1rem;
 	box-shadow: inset 0em 0em 10em 7em #000;
-  	background-image: url(./images/black_leather_texture.jpg);
-  	background-color: rgba(0, 0, 0, 0.607);
+	background-image: url(./images/crowd.jpg);
+  	background-color: rgba(0, 0, 0, 0.185);
+	background-position: center;
   	background-blend-mode: color;
+	background-attachment: fixed;
   	background-size: cover;
 }
 
-.title-text {
-	color: whitesmoke;
-	font-size: 1.5rem;
-	margin-top: 1rem;
-}
-
-.text {
+.keyboard-text {
 	color: whitesmoke;
 	font-size: 1.25rem;
+	margin: 0;
+	padding: 0;
+	text-shadow: 0 0 1.25rem black, 0 0 1.25rem black, 0 0 1.25rem black, 0 0 1.25rem black;
 }
 
-#title1 { grid-area: 1/1/2/end; }
-#text1 { grid-area: 2/1/3/end; }
-
-#title2 { grid-area: 3/1/4/end; }
-#text2 { grid-area: 4/1/5/end; }
-
-#piano_container { 
-	grid-area: 5/1/6/end;
-	margin-top: 1rem;
+#keyboard-text-intro { 
+	grid-area: 1/2/2/3;
+	margin-top: 1rem; 
 }
 
-#title3 { grid-area: 6/1/7/end;}
-#text3 {grid-area: 7/1/8/end;}
+#keyboard-text-main {grid-area: 2/2/3/3;}
 
-#title4 { grid-area: 8/1/9/end;}
-#text4 { grid-area: 9/1/10/end;}
+#keyboard-text-end {grid-area: 4/2/5/3;}
+
+#piano_container {grid-area: 3/2/4/3;}
 
 .piano-keys {
     width: 3.5rem; /* 3.5rem */
@@ -430,27 +421,15 @@ body {
   	background:linear-gradient(to bottom,#fff 0%,#e9e9e9 100%);
 }
 
-/* .white-key:hover {
-    background-color: #c0c0c0;
+.piano-keys-list li:nth-child(-n+7) {display: none;}
+
+.piano-keys-list li:nth-last-child(-n+5) {display: none;}
+
+@media screen and (max-width: 400px) {
+	.piano-keys-list li:nth-child(-n+12) {display: none;}
 }
 
-.black-key:hover {
-    background-color: rgb(63, 63, 63);
-    box-shadow: 5px 10px 18px #888888;
-} */
-
-.piano-keys-list li:nth-child(-n+7) {
-    display: none;
-}
-
-.piano-keys-list li:nth-last-child(-n+5) {
-    display: none;
-}
-
-@media screen and (min-width: 821px) and (max-width: 1024px) { /* wie macht man wrapped text? */
-    #main_piano {
-		grid-template-columns: 1fr 3fr 12fr 1fr;
-	}
+@media screen and (min-width: 750px) and (max-width: 1440px) { /* wie macht man wrapped text? */
 
 	.piano-keys {
         width: 4rem;
@@ -467,78 +446,13 @@ body {
 
     .piano-keys-list li:nth-child(-n+7) { display: flex; }
 
-	.title-text { 
-		margin: 0; 
-		display: flex;
-		align-items: center;
-		font-size: 1.75rem;
-		margin: 3rem 0;
-		text-shadow: 0 0 20px black;
-	}
-	.text {
-		display: flex;
-		align-items: center;
-		font-size: 1.5rem;
-		text-shadow: 0 0 10px black;
-		
-	}
-	#title1 {grid-area: 1/2/2/3;}
-	#text1 {grid-area: 1/3/2/4;}
-
-	#title2 {grid-area: 2/2/3/3;}
-	#text2 {grid-area: 2/3/3/4;}
-
-	#piano_container {
-		grid-area: 3/2/4/4;
-		margin: 2rem 0;
-	}
-
-	#title3 {grid-area: 4/2/5/3;}
-	#text3 {grid-area: 4/3/5/4;}
-
-	#title4 {grid-area: 5/2/6/3;}
-	#text4 {grid-area: 5/3/6/4;}
+	.keyboard-text {font-size: 1.5rem;}
 }
 
-@media screen and (min-width: 1025px) {
-	#main_piano {
-		grid-template-columns: 1fr 3fr 12fr 1fr;
-	}
+@media screen and (min-width: 1440px) {
+	#main_piano {grid-template-columns: 1fr 10fr 1fr;}
 
-	#container { padding: 16px; }
-
-	
-	.title-text { 
-		margin: 0; 
-		display: flex;
-		align-items: center;
-		font-size: 2rem;
-		margin: 3rem 0;
-		text-shadow: 0 0 20px black;
-	}
-	.text {
-		display: flex;
-		align-items: center;
-		font-size: 1.75rem;
-		text-shadow: 0 0 10px black;
-		
-	}
-	#title1 {grid-area: 1/2/2/3;}
-	#text1 {grid-area: 1/3/2/4;}
-
-	#title2 {grid-area: 2/2/3/3;}
-	#text2 {grid-area: 2/3/3/4;}
-
-	#piano_container {
-		grid-area: 3/2/4/4;
-		margin: 2rem 0;
-	}
-
-	#title3 {grid-area: 4/2/5/3;}
-	#text3 {grid-area: 4/3/5/4;}
-
-	#title4 {grid-area: 5/2/6/3;}
-	#text4 {grid-area: 5/3/6/4;}
+	.keyboard-text {font-size: 1.75rem;}
 
     .piano-keys {
         width: 5rem;
@@ -547,7 +461,6 @@ body {
     }
 
 	.piano-keys.no-black + .piano-keys.no-black { margin-left: 0.5rem }
-
 
     .black-key {
         width: 2rem;
@@ -571,6 +484,7 @@ body {
 	box-shadow: inset 0em 0em 10em 7em #000;
 	background-image: url(./images/band-fullhd.jpg);	
 	background-color: #00000084;
+	background-position: center;
 	background-blend-mode: color;
 	background-size: cover;
 	background-attachment: fixed;
@@ -627,7 +541,7 @@ body {
 		text-align: center;
 		margin: 0 auto;
 	}
-	
+
 	#imgAndText1 {grid-area: 1/2/2/5;}
 
 	#title2 {grid-area: 2/2/3/3;}
