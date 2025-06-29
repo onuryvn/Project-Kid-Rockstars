@@ -5,6 +5,22 @@ document.getElementById("next").addEventListener("click", () => {
     plusSlides(1)
 });
 
+document.getElementById('slide1').addEventListener("click", () => {
+  currentSlide(1);
+})
+
+document.getElementById('slide2').addEventListener("click", () => {
+  currentSlide(2);
+})
+
+document.getElementById('slide3').addEventListener("click", () => {
+  currentSlide(3);
+})
+
+document.getElementById('slide4').addEventListener("click", () => {
+  currentSlide(4);
+})
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
