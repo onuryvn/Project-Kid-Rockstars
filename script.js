@@ -36,7 +36,7 @@ function showSlides(n) {
 
 // curtain menu
 
-let burger_button = document.getElementById('burger_button');
+let burger_button = document.querySelector('.burger-button');
 
 let toggle = false;
 
