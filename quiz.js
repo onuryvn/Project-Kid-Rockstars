@@ -1,40 +1,94 @@
 const questions = [
     {
-        question: "Which is larget animal in the world?",
+        question: "Wer ist der Frontmann von Metallica?",
         answers: [
-            { text: "Shark", correct: false},
-            { text: "Blue whale", correct: true},
-            { text: "Elephant", correct: false},
-            { text: "Giraffe", correct: false},
+            { text: "James Hetfield", correct: true },
+            { text: "Taylor Swift", correct: false },
+            { text: "Ronald Reagan", correct: false },
+            { text: "Ozzy Osbourne", correct: false },
         ]
     },
     {
-        question: "Which is the smallest country in the world?",
+        question: "Welches Instrument ist in einer typischen Metal-Band am unwahrscheinlichsten zu finden?",
         answers: [
-            { text: "Vatican City", correct: true},
-            { text: "Bhutan", correct: false},
-            { text: "Nepal", correct: false},
-            { text: "Shri Lanka", correct: false},
+            { text: "E-Bass", correct: false },
+            { text: "E‑Gitarre", correct: false },
+            { text: "Schlagzeug", correct: false },
+            { text: "Harfe", correct: true },
         ]
     },
     {
-        question: "Which is the largest desert in the world?",
+        question: "Wie viele Saiten hat ein typischer E‑Bass?",
         answers: [
-            { text: "Kalahari", correct: false},
-            { text: "Gobi", correct: false},
-            { text: "Sahara", correct: false},
-            { text: "Antarctica", correct: true},
+            { text: "12", correct: false },
+            { text: "2", correct: false },
+            { text: "4", correct: true },
+            { text: "π", correct: false },
         ]
     },
     {
-        question: "Which is the smallest continent in the world?",
+        question: "Welches Subgenre gehört nicht zum Metal?",
         answers: [
-            { text: "Asia", correct: false},
-            { text: "Australia", correct: true},
-            { text: "Arctic", correct: false},
-            { text: "Africa", correct: false},
+            { text: "Thrash Metal", correct: false },
+            { text: "Glam Rock", correct: true },
+            { text: "Technical Death Metal", correct: false },
+            { text: "Black Metal", correct: false },
         ]
-    }  
+    },
+    {
+        question: "Wer ist der Leadsänger von Lamb of God?",
+        answers: [
+            { text: "Randy Blythe", correct: true },
+            { text: "Mr. Crabs", correct: false },
+            { text: "Chris Adler", correct: false },
+            { text: "Dave Mustaine", correct: false },
+        ]
+    },
+    {
+        question: "Welche dieser Metal‑Bands kommt aus Deutschland?",
+        answers: [
+            { text: "Necrophagist", correct: true },
+            { text: "Megadeth", correct: false },
+            { text: "Motörhead", correct: false },
+            { text: "Judas Priest", correct: false },
+        ]
+    },
+    {
+        question: "Welchem Genre gehört Slayer an?",
+        answers: [
+            { text: "Thrash Metal", correct: true },
+            { text: "Glam Metal", correct: false },
+            { text: "Doom Metal", correct: false },
+            { text: "Nu Metal", correct: false },
+        ]
+    },
+    {
+        question: "Welcher Teil einer E‑Gitarre liest die Schwingungen der Saiten und wandelt sie in Tonsignale um?",
+        answers: [
+            { text: "Tonabnehmer", correct: true },
+            { text: "Hals", correct: false },
+            { text: "Bundbrett", correct: false },
+            { text: "Stimmmechaniken", correct: false },
+        ]
+    },
+    {
+        question: "Wie viele Töne befinden sich in einer Oktave?",
+        answers: [
+            { text: "666", correct: false },
+            { text: "12", correct: true },
+            { text: "24", correct: false },
+            { text: "10", correct: false },
+        ]
+    },
+    {
+        question: "Was ermöglicht einer E‑Gitarre, lauter als eine Akustikgitarre zu sein?",
+        answers: [
+            { text: "Metronom", correct: false },
+            { text: "Metall‑Saiten", correct: false },
+            { text: "Verstärker", correct: true },
+            { text: "Saitenzahl", correct: false },
+        ]
+    },
 ];
 
 const questionElement = document.getElementById("question");
