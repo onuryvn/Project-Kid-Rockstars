@@ -659,3 +659,98 @@ body {
 
 
 /* /HISTORY PAGE */
+
+/* BAND PAGE */
+
+#band-page-main {
+	grid-area: 2/1/3/4;
+	display: grid;
+	grid-template-columns: 1fr 15fr 1fr;
+	row-gap: 10rem;
+	box-shadow: inset 0em 0em 10em 7em #000;
+	background-image: url(./images/band-fullhd.jpg);	
+	background-color: #00000084;
+	background-position: center;
+	background-blend-mode: color;
+	background-size: cover;
+	background-attachment: fixed;
+	color: whitesmoke;
+}
+
+.band-member-text {
+	text-indent: 1rem;
+	background: rgba(0, 0, 0, 0.623);    
+	box-shadow: 0 0 1rem 0.25rem black;
+	border-radius: 8px; 
+}
+
+.band-member-container {
+	position: relative;
+	display: inline-block;
+}
+
+.band-member-img {	
+	max-width: 100%;
+}
+
+.band-member-title {
+	position: absolute;
+	max-width: 30%;
+	top: 0;
+	left: 0;
+	margin: 1rem;
+	font-size: 4vw;
+	line-height: 1.4;
+}
+
+#band-intro-img {
+	width: 100%;
+}
+
+#band-intro-container {grid-area: 1/2/2/3;}
+
+#drummer-container {grid-area: 2/2/3/3;}
+
+#guitarist-container {grid-area: 3/2/4/3;}
+
+#bassist-container {grid-area: 4/2/5/3;}
+
+#vocals-container {grid-area: 5/2/6/3;}
+
+#keyboard-container {grid-area: 6/2/7/3;}
+
+@media screen and (min-width: 750px) {
+	
+	#band-page-main {
+		grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
+	}
+
+	.band-member-container {display: contents;}
+
+	.band-member-text {font-size: 1.25rem;}
+
+	#band-intro-container {grid-area: 1/2/2/5;}
+
+	#drummer-title {grid-area: 2/2/3/3;}
+	#drummer-text {grid-area: 2/3/3/4;}
+	#drummer-img {grid-area: 2/4/3/5;}
+
+	#guitarist-title {grid-area: 3/3/4/4;}
+	#guitarist-text {grid-area: 3/4/4/5;}
+	#guitarist-img {grid-area: 3/2/4/3;}
+
+	#bassist-title {grid-area: 4/4/5/5;}
+	#bassist-text {grid-area: 4/2/5/3;}
+	#bassist-img {grid-area: 4/3/5/4;}
+
+	#vocals-title {grid-area: 5/2/6/3;}
+	#vocals-text {grid-area: 5/3/6/4;}
+	#vocals-img {grid-area: 5/4/6/5;}
+
+	#keyboard-title {grid-area: 6/3/7/4;}
+	#keyboard-text {grid-area: 6/4/7/5;}
+	#keyboard-img {grid-area: 6/2/7/3;}
+}
+
+
+/* /BAND PAGE */
