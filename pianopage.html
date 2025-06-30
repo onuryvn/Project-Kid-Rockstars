@@ -6,22 +6,31 @@
     <meta name="author" content="Moshlings Team" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style3.css">
+    <link rel="stylesheet" href="./style1.css">
     <title>piano page</title>
 </head>
 <body>
-
-    <div id="grid-container-3">
-        <div id="header_wrapper">
-            <header id="header">
-                <h2>HOW TO
-                    <div class="highlight">PLAY</div>
-                </h2>
-            </header>
+    <nav id="myNav" class="overlay">
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="./band.html">BAND</a>
+            <a href="./history.html">ROCK HISTORY</a>
+            <a href="./quiz.html">QUIZ</a>
         </div>
-        <button id="burger_button" type="button">&#9776;</button>
+    </nav>
 
-        <section id="main_piano">
+    <div class="grid-container" id="keyboard-page">
+        <header class="header" id="keyboard-page-header">
+            <div>LEARN THE 
+                <div class="header-highlight">KEYBOARD</div>
+            </div>
+        </header>
+
+        <div class="burger-button-container">
+            <button class="burger-button" type="button">&#9776;</button>
+        </div>
+
+        <section class="grid-item-main" id="keyboard-page">
 
             <p class="keyboard-text" id="keyboard-text-intro">
                 Think Keyboards are just for classical nerds and synth-pop? 
@@ -32,7 +41,7 @@
 
             <p class="keyboard-text" id="keyboard-text-main">
                 This section will <strong>not</strong> teach you how to play the Keyboard 
-                -although it says so in the title, we are aware of that okay? it just sounded better that way to be honest-
+                -although it says so in the title.. To be honest it just sounded better that way-
                 our only job is to give you a Keyboard, the rest is up to <strong>You</strong>!
             </p>
 
@@ -76,3 +85,4 @@
 
 <script src="./pianoscript.js"></script>
 </body>
+</html>

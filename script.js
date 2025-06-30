@@ -1,3 +1,7 @@
+/**
+ * @source w3schools.com
+ * @description coupled with own designs and functionality
+ */
 document.getElementById("prev").addEventListener("click", () => {
     plusSlides(-1)
 });

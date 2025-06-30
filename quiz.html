@@ -3,34 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style3.css">
+    <link rel="stylesheet" href="./style1.css">
     <title>Quiz</title>
 </head>
 <body>
-  <div id="grid-container-3">
-    <div id="header_wrapper">
-        <header id="header">
-            <h2>TEST YOUR 
-                <div class="highlight">KNOWLEDGE</div>
-            </h2>
-        </header>
-    </div>
-    <button id="burger_button" type="button">&#9776;</button>
-
-    <section class="app">
-      <h1>Simple Quiz</h1>
-      <div class="quiz">
-        <h2 id="question">Question goes here</h2>
-        <div id="answer-buttons">
-          <button class="btn">Answer 1</button>
-          <button class="btn">Answer 2</button>
-          <button class="btn">Answer 3</button>
-          <button class="btn">Answer 4</button>
+    <nav id="myNav" class="overlay">
+        <div class="overlay-content">
+            <a href="./band.html">BAND</a>
+            <a href="./history.html">ROCK HISTORY</a>
+            <a href="./pianopage.html">KEYBOARD</a>
         </div>
-        <button id="next-btn">Next</button>
+    </nav>
+
+    <div class="grid-container" id="history-page">
+        <header class="header" id="history-page-header">
+            <div>SIMPLE ROCK 
+                <div class="header-highlight">QUIZ</div>
+            </div>
+        </header>
+
+        <div class="burger-button-container">
+            <button class="burger-button" type="button">&#9776;</button>
+        </div>
+
+        <section class="grid-item-main" id="quiz-page-main">
+          <h1>Test Your <span class="text-metal">ROCK</span> Knowledge!</h1>
+          <div class="quiz">
+            <h2 id="question">Question goes here</h2>
+            <div id="answer-buttons">
+              <button class="btn">Answer 1</button>
+              <button class="btn">Answer 2</button>
+              <button class="btn">Answer 3</button>
+              <button class="btn">Answer 4</button>
+            </div>
+            <button id="next-btn">Next</button>
+          </div>
+        </section>
       </div>
-    </section>
-  </div>
 <script src="quiz.js"></script>
 </body>
 </html>

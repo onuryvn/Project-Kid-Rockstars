@@ -1,40 +1,94 @@
 const questions = [
-    {
-        question: "Which is larget animal in the world?",
-        answers: [
-            { text: "Shark", correct: false},
-            { text: "Blue whale", correct: true},
-            { text: "Elephant", correct: false},
-            { text: "Giraffe", correct: false},
-        ]
-    },
-    {
-        question: "Which is the smallest country in the world?",
-        answers: [
-            { text: "Vatican City", correct: true},
-            { text: "Bhutan", correct: false},
-            { text: "Nepal", correct: false},
-            { text: "Shri Lanka", correct: false},
-        ]
-    },
-    {
-        question: "Which is the largest desert in the world?",
-        answers: [
-            { text: "Kalahari", correct: false},
-            { text: "Gobi", correct: false},
-            { text: "Sahara", correct: false},
-            { text: "Antarctica", correct: true},
-        ]
-    },
-    {
-        question: "Which is the smallest continent in the world?",
-        answers: [
-            { text: "Asia", correct: false},
-            { text: "Australia", correct: true},
-            { text: "Arctic", correct: false},
-            { text: "Africa", correct: false},
-        ]
-    }  
+  {
+    question: "Who is the frontman of Metallica?",
+    answers: [
+      { text: "James Hetfield", correct: true },
+      { text: "Taylor Swift", correct: false },
+      { text: "Ronald Reagan", correct: false },
+      { text: "Ozzy Osbourne", correct: false },
+    ]
+  },
+  {
+    question: "Which instrument is least likely to be found in a typical metal band?",
+    answers: [
+      { text: "Electric bass", correct: false },
+      { text: "Electric guitar", correct: false },
+      { text: "Drums", correct: false },
+      { text: "Harp", correct: true },
+    ]
+  },
+  {
+    question: "How many strings does a typical electric bass have?",
+    answers: [
+      { text: "12", correct: false },
+      { text: "2", correct: false },
+      { text: "4", correct: true },
+      { text: "π", correct: false },
+    ]
+  },
+  {
+    question: "Which subgenre does not belong to metal?",
+    answers: [
+      { text: "Thrash Metal", correct: false },
+      { text: "Glam Rock", correct: true },
+      { text: "Technical Death Metal", correct: false },
+      { text: "Black Metal", correct: false },
+    ]
+  },
+  {
+    question: "Who is the lead singer of Lamb of God?",
+    answers: [
+      { text: "Randy Blythe", correct: true },
+      { text: "Mr. Krabs", correct: false },
+      { text: "Chris Adler", correct: false },
+      { text: "Dave Mustaine", correct: false },
+    ]
+  },
+  {
+    question: "Which of these metal bands comes from Germany?",
+    answers: [
+      { text: "Necrophagist", correct: true },
+      { text: "Megadeth", correct: false },
+      { text: "Motörhead", correct: false },
+      { text: "Judas Priest", correct: false },
+    ]
+  },
+  {
+    question: "What genre does Slayer belong to?",
+    answers: [
+      { text: "Thrash Metal", correct: true },
+      { text: "Glam Metal", correct: false },
+      { text: "Doom Metal", correct: false },
+      { text: "Nu Metal", correct: false },
+    ]
+  },
+  {
+    question: "Which part of an electric guitar reads the string vibrations and converts them into audio signals?",
+    answers: [
+      { text: "Pickup", correct: true },
+      { text: "Neck", correct: false },
+      { text: "Fretboard", correct: false },
+      { text: "Tuning pegs", correct: false },
+    ]
+  },
+  {
+    question: "How many notes are there in one octave?",
+    answers: [
+      { text: "666", correct: false },
+      { text: "12", correct: true },
+      { text: "24", correct: false },
+      { text: "10", correct: false },
+    ]
+  },
+  {
+    question: "What allows an electric guitar to be louder than an acoustic guitar?",
+    answers: [
+      { text: "Metronome", correct: false },
+      { text: "Metal strings", correct: false },
+      { text: "Amplifier", correct: true },
+      { text: "Number of strings", correct: false },
+    ]
+  }
 ];
 
 const questionElement = document.getElementById("question");
@@ -120,5 +174,43 @@ nextButton.addEventListener("click", ()=>{
     }
 });
 
-
 startQuiz();
+
+// curtain menu
+
+let burger_button = document.querySelector('.burger-button');
+
+let toggle = false;
+
+function changeButton() {
+  openNav();
+  burger_button.innerHTML = '&times;';
+  burger_button.style.fontSize = '36px';
+}
+
+function resetButton() {
+  closeNav();
+  burger_button.innerHTML = '&#9776;';
+  burger_button.style.fontSize = '24px';
+}
+
+burger_button.addEventListener("click", () => {
+  if(toggle) {
+    resetButton();
+  } 
+  else {
+    changeButton();
+  }
+  toggle = !toggle; // change value
+});
+
+/* Open */
+function openNav() {
+  document.getElementById("myNav").style.height = "100%";
+}
+
+/* Close */
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+// /curtain menu
