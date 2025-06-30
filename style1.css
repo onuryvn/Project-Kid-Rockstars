@@ -3,13 +3,13 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   padding: 0;
   background: black;
   margin: 0;
-  overflow-y: hidden;
 }
 
 /* main */
@@ -22,7 +22,7 @@ body {
   height: 100vh;
 }
 
-#header {
+#main-page-header {
   grid-area: 1/2/2/3;
   display: flex;
   justify-content: center;
@@ -30,7 +30,7 @@ body {
   border-bottom: 2px solid whitesmoke;
 }
 
-#header > div {
+.header > div {
   color: whitesmoke;
   font-family: sans-serif;
   font-size: 1rem;
@@ -49,10 +49,8 @@ body {
     #ffef0ea2 75%,
     #ddd 100%
   );
-  /* Clippe den Verlauf auf die Buchstaben */
   -webkit-background-clip: text;
   background-clip: text;
-  /* Macht den eigentlichen Text transparent */
   color: transparent;
 	text-shadow:
     0 0 2px rgba(255,255,255,0.8),
@@ -72,7 +70,7 @@ body {
   font-size: 1.5rem;
   color: white;
   cursor: pointer;
-  z-index: 3;
+  z-index: 10;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -277,7 +275,7 @@ body {
     grid-template-rows: 80px 1fr 1fr 1fr;
   }
 
-  #header > div {font-size: 1.5rem;}
+  .header > div {font-size: 1.5rem;}
 
   .header-highlight {font-size: 2rem;}
 
@@ -294,4 +292,370 @@ body {
   }
 }
 
+/* HISTORY PAGE */
 
+
+.text-metal {
+	font-family: "New Rocker";
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr 5fr 1fr;
+	grid-template-rows: 60px 1fr;
+	width: 100%;
+	min-height: 100vh;
+}
+
+.header { /* header und header wrapper grid und Datenstruktur noch verbessern*/
+	grid-area: 1/1/2/4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	box-shadow: 0 -10px 2rem 2rem ;
+}
+
+.header,
+.burger-button-container {
+	position: sticky;
+	top: 0;
+	z-index: 3;
+}
+
+.header > div {
+  color: whitesmoke;
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.header-highlight {
+  font-family: "New Rocker", system-ui;
+  font-size: 1.5rem; 
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    #ddd 0%,
+    #ff000057 25%,
+    #de6400 50%,
+    #ffef0ea2 75%,
+    #ddd 100%
+  );
+  /* Clippe den Verlauf auf die Buchstaben */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Macht den eigentlichen Text transparent */
+  color: transparent;
+	text-shadow:
+	0 0 2px rgba(255,255,255,0.8),
+	2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.burger-button-container {
+  grid-area: 1/3/2/4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger-button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  z-index: 3;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.grid-item-main {
+	grid-area: 2/1/3/4;
+	padding: 0 0.5rem;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-blend-mode: color;
+	box-shadow: inset 0em 0em 10em 7em #000;
+	color: whitesmoke;
+}
+
+/* history-page-main */
+#history-page-main {
+	row-gap: 17rem;
+	display: grid;
+	grid-template-columns: 1fr 3fr 8fr;
+  	background-image: url(./images/rock-collage-fullhd.jpg);
+  	background-color: rgba(0, 0, 0, 0.607);
+	margin-top: 2rem;
+}
+
+#ruler {
+	display: flex;
+	justify-content: center;
+	grid-area: 1/1/10/2;
+}
+
+#ruler > div {
+	background-color: white;
+	width: 3px;
+}
+
+.ruler-dots {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+}
+
+.ruler-dots > div {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background: rgb(255, 128, 0);
+	border: 3px solid rgb(106, 66, 21);
+}
+
+.audio-player {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.song-title {
+	font-size: 0.9rem;
+	font-weight: normal;
+  	opacity: 0;
+  	transition: opacity 0.5s ease;
+}
+
+.song-title.show {opacity: 1;}
+
+.dates {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+.dates,
+.song-title {
+	font-family: sans-serif;
+}
+
+.dates,
+.media-container {font-weight: 700;}
+
+.media-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	gap: 0.5rem;
+	font-family: serif;
+}
+
+.text-background > div {
+	background: rgba(0, 0, 0, 0.623);    
+	box-shadow: 0 0 8px 2px black;
+	border-radius: 8px;  
+	width: 100%;
+	height: 100%;
+}
+
+#text-background1 {grid-area: 1/2/2/4;}
+#text-background2 {grid-area: 2/2/3/4;}
+#text-background3 {grid-area: 3/2/4/4;}
+#text-background4 {grid-area: 4/2/5/4;}
+#text-background5 {grid-area: 5/2/6/4;}
+#text-background6 {grid-area: 6/2/7/4;}
+#text-background7 {grid-area: 7/2/8/4;}
+#text-background8 {grid-area: 8/2/9/4;}
+
+#dot1 {grid-area: 1/1/2/2;}
+#date-1922 {grid-area: 1/2/2/3;}
+#content-1922 {grid-area: 1/3/2/4;}	
+
+#dot2 {grid-area: 2/1/3/2;}
+#date-1952 {grid-area: 2/2/3/3;}
+#content-1952 {grid-area: 2/3/3/4;}
+
+#dot3 {grid-area: 3/1/4/2;}
+#date-1956 {grid-area: 3/2/4/3;}
+#content-1956 {grid-area: 3/3/4/4;}
+
+#dot4 {grid-area: 4/1/5/2;}
+#date-1964 {grid-area: 4/2/5/3;}
+#content-1964 {grid-area: 4/3/5/4;}
+
+#dot5 {grid-area: 5/1/6/2;}
+#date-1971 {grid-area: 5/2/6/3;}
+#content-1971 {grid-area: 5/3/6/4;}
+
+#dot6 {grid-area: 6/1/7/2;}
+#date-1980 {grid-area: 6/2/7/3;}
+#content-1980 {grid-area: 6/3/7/4;}
+
+#dot7 {grid-area: 7/1/8/2;}
+#date-1991 {grid-area: 7/2/8/3;}
+#content-1991 {grid-area: 7/3/8/4;}
+
+#dot8 {grid-area: 8/1/9/2;}
+#date-1994 {grid-area: 8/2/9/3;}
+#content-1994 {grid-area: 8/3/9/4;}
+
+#content-end  {
+	grid-area: 9/2/10/4;
+	font-family: serif;
+	text-shadow: 0 0 1.25rem black, 0 0 1.25rem black, 0 0 1.25rem black, 0 0 1.25rem black;
+	padding-bottom: 0.5rem;
+}
+
+
+/* /history-page-main */
+
+@media screen and (max-width: 400px) {
+	#history-page-main {
+		grid-template-columns: 1fr 11fr;
+		row-gap: 0;
+		grid-template-rows: repeat(8, 1fr 3fr 4fr);
+	}
+
+	#ruler {grid-area: 1/1/end/2;}
+
+	.dates {justify-content: start;}
+
+	#text-background1 {grid-area: 1/2/3/3;}
+	#text-background2 {grid-area: 4/2/6/3;}
+	#text-background3 {grid-area: 7/2/9/3;}
+	#text-background4 {grid-area: 10/2/12/3;}
+	#text-background5 {grid-area: 13/2/15/3;}
+	#text-background6 {grid-area: 16/2/18/3;}
+	#text-background7 {grid-area: 19/2/21/3;}
+	#text-background8 {grid-area: 22/2/24/3;}
+
+	#dot1 {grid-area: 1/1/2/2;}
+	#date-1922 {grid-area: 1/2/2/3;}
+	#content-1922 {grid-area: 2/2/3/3;}
+
+	#dot2 {grid-area: 4/1/5/2;}
+	#date-1952 {grid-area: 4/2/5/3;}
+	#content-1952 {grid-area: 5/2/6/3;}
+
+	#dot3 {grid-area: 7/1/8/2;}
+	#date-1956 {grid-area: 7/2/8/3;}
+	#content-1956 {grid-area: 8/2/9/3;}
+
+	#dot4 {grid-area: 10/1/11/2;}
+	#date-1964 {grid-area: 10/2/11/3;}
+	#content-1964 {grid-area: 11/2/12/2;}
+
+	#dot5 {grid-area: 13/1/14/2;}
+	#date-1971 {grid-area: 13/2/14/3;}
+	#content-1971 {grid-area: 14/2/15/3;}
+
+	#dot6 {grid-area: 16/1/17/2;}
+	#date-1980 {grid-area: 16/2/17/3;}
+	#content-1980 {grid-area: 17/2/18/3;}
+
+	#dot7 {grid-area: 19/1/20/2;}
+	#date-1991 {grid-area: 19/2/20/3;}
+	#content-1991 {grid-area: 20/2/21/3;}
+
+	#dot8 {grid-area: 22/1/23/2;}
+	#date-1994 {grid-area: 22/2/23/3;}
+	#content-1994 {grid-area: 23/2/24/3;}
+
+	#content-end {grid-area: 25/2/26/3;}
+
+	.dates,
+	.media-container {font-size: 1rem;}
+
+	.song-title {
+		font-size: 0.75rem;
+		padding-top: 0.5rem;
+	}
+}
+
+@media screen and (min-width: 750px) {
+	.grid-container {
+    grid-template-rows: 80px 1fr;
+  }
+
+  #history-page-main {
+		grid-template-columns: 20fr 1fr 20fr;
+		padding: 0 2rem;
+	}
+
+	#date-wrapper > *:nth-child(odd) {margin-left: auto;} 
+	#date-wrapper > *:nth-child(even) {margin-right: auto;}
+
+	#ruler {grid-area: 1/2/10/3;}
+
+	.text-background {display: none;}
+
+	.media-container {
+		font-size: 1.5rem;
+		background: rgba(0, 0, 0, 0.623);    
+		box-shadow: 0 0 1rem 0.25rem black;
+		border-radius: 8px; 
+	}
+
+	.dates {
+		font-size: 1.5rem;
+		text-shadow: 0 0 1.25rem black, 0 0 1.25rem black, 0 0 1.25rem black, 0 0 1.25rem black;
+	}
+
+	.song-title {font-size: 1rem;}
+
+	#date-1922,
+	#date-1956,
+	#date-1971,
+	#date-1991 {text-align: right;}
+
+	#content-1952,
+	#content-1964,
+	#content-1980,
+	#content-1994 {text-align: right;}
+
+	#date-1922 {grid-area: 1/1/2/2;}
+	#dot1 {grid-area: 1/2/2/3;}
+	#content-1922 {grid-area: 1/3/2/4;}
+
+	#date-1952 {grid-area: 2/3/3/4;}
+	#dot2 {grid-area: 2/2/3/3;}
+	#content-1952 {grid-area: 2/1/3/2;}
+
+	#date-1956 {grid-area: 3/1/4/2;}
+	#dot3 {grid-area: 3/2/4/3;}
+	#content-1956 {grid-area: 3/3/4/4;}
+
+	#date-1964 {grid-area: 4/3/5/4;}
+	#dot4 {grid-area: 4/2/5/3;}
+	#content-1964 {grid-area: 4/1/5/2;}
+
+	#date-1971 {grid-area: 5/1/6/2;}
+	#dot5 {grid-area: 5/2/6/3;}
+	#content-1971 {grid-area: 5/3/6/4;}
+
+	#date-1980 {grid-area: 6/3/7/4;}
+	#dot6 {grid-area: 6/2/7/3;}
+	#content-1980 {grid-area: 6/1/7/2;}
+
+	#date-1991 {grid-area: 7/1/8/2;}
+	#dot7 {grid-area: 7/2/8/3;}
+	#content-1991 {grid-area: 7/3/8/4;}
+	
+	#date-1994 {grid-area: 8/3/9/4;}
+	#dot8 {grid-area: 8/2/9/3;}
+	#content-1994 {grid-area: 8/1/9/2;}
+
+	#content-end  {grid-area: 9/3/10/4;}
+}
+
+#date-wrapper {
+	display: contents;
+}
+
+
+/* /HISTORY PAGE */
