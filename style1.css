@@ -752,5 +752,144 @@ body {
 	#keyboard-img {grid-area: 6/2/7/3;}
 }
 
-
 /* /BAND PAGE */
+
+/* PIANO PAGE */
+#keyboard-page {
+	grid-area: 2/1/3/4;
+	display: grid;
+	grid-template-columns: 1fr 5fr 1fr;
+	box-shadow: inset 0em 0em 10em 7em #000;
+	background-image: url(./images/crowd.jpg);
+  	background-color: rgba(0, 0, 0, 0.185);
+	background-position: center;
+  	background-blend-mode: color;
+	background-attachment: fixed;
+  	background-size: cover;
+}
+
+#keyboard-page-header {box-shadow: none;}
+
+.keyboard-text {
+	color: whitesmoke;
+	font-size: 1.25rem;
+	margin: 0;
+	padding: 0;
+	text-shadow: 0 0 1.25rem black, 0 0 1.25rem black;
+	background-color: transparent;
+}
+
+#keyboard-text-intro { 
+	grid-area: 1/2/2/3;
+	margin-top: 0.5rem;
+}
+
+#keyboard-text-main {grid-area: 2/2/3/3;}
+
+#keyboard-text-end {grid-area: 4/2/5/3;}
+
+#piano_container {grid-area: 3/2/4/3;}
+
+.piano-keys {
+    width: 3.5rem; /* 3.5rem */
+    cursor: pointer;
+    position: relative;
+    height: 16rem; /* 16rem */
+    border-radius: 10px;
+	-webkit-tap-highlight-color: transparent;
+	margin: 0 0.291rem;
+	color: black;
+}
+
+.piano-keys-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.piano-keys.no-black + .piano-keys.no-black {
+  margin-left: -0.28rem;
+}
+
+.black-key {
+    width: 1.8rem;
+    height: 10rem;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    z-index: 2;
+    margin: 0 -1.213rem;
+	box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset,0 -5px 2px 3px rgba(0,0,0,0.6) inset,0 2px 4px rgba(0,0,0,0.5);
+  	background:linear-gradient(45deg,#222 0%,#555 100%);
+}
+
+.black-key:active {
+	box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset,0 -2px 2px 3px rgba(0,0,0,0.6) inset,0 1px 2px rgba(0,0,0,0.5);
+ 	background:linear-gradient(to right,#444 0%,#222 100%);
+}
+
+
+.white-key {
+  	box-shadow:-1px 0 0 rgba(255,255,255,0.8) inset,0 0 5px #ccc inset,0 0 3px rgba(0,0,0,0.2);
+  	background:linear-gradient(to bottom,#eee 0%,#fff 100%);
+}
+
+
+.white-key:active {
+	box-shadow:2px 0 3px rgba(0,0,0,0.1) inset,-5px 5px 20px rgba(0,0,0,0.2) inset,0 0 3px rgba(0,0,0,0.2);
+  	background:linear-gradient(to bottom,#fff 0%,#e9e9e9 100%);
+}
+
+.piano-keys-list li:nth-child(-n+7) {display: none;}
+
+.piano-keys-list li:nth-last-child(-n+5) {display: none;}
+
+@media screen and (max-width: 400px) {
+	.piano-keys-list li:nth-child(-n+12) {display: none;}
+}
+
+@media screen and (min-width: 750px) and (max-width: 1440px) { /* wie macht man wrapped text? */
+
+	.piano-keys {
+        width: 4rem;
+        height: 20rem;
+		margin: 0 -0.5rem;
+    }
+
+	.piano-keys.no-black + .piano-keys.no-black { margin-left: 0.5rem }
+
+    .black-key {
+        width: 2rem;
+        height: 13rem;
+    }
+
+    .piano-keys-list li:nth-child(-n+7) { display: flex; }
+
+	.keyboard-text {font-size: 1.5rem;}
+}
+
+@media screen and (min-width: 1440px) {
+	#main_piano {grid-template-columns: 1fr 10fr 1fr;}
+
+	.keyboard-text {font-size: 1.75rem;}
+
+    .piano-keys {
+        width: 5rem;
+        height: 20rem;
+		margin: 0 -0.51rem;
+    }
+
+	.piano-keys.no-black + .piano-keys.no-black { margin-left: 0.5rem }
+
+    .black-key {
+        width: 2rem;
+        height: 13rem;
+    }
+
+    .piano-keys-list li:nth-child(-n+7) { display: flex; }
+
+    .piano-keys-list li:nth-last-child(-n+5) { display: flex; }
+}
+/* /PIANO PAGE */
