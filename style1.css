@@ -287,8 +287,8 @@ body {
   #next {font-size: 2rem;}
 
   .dot {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
   }
 }
 
@@ -777,7 +777,8 @@ body {
   	background-size: cover;
 }
 
-#keyboard-page-header {box-shadow: none;}
+#keyboard-page-header {box-shadow: none;
+text-align: center;}
 
 .keyboard-text {
 	color: whitesmoke;
